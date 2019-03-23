@@ -14,10 +14,8 @@ call vundle#begin(s:editor_root . '/bundle')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'thinca/vim-qfreplace'
 Plugin 'mbbill/undotree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
@@ -29,8 +27,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/twilight256.vim'
-Plugin 'vim-scripts/wombat256.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -138,7 +134,6 @@ let g:deoplete#enable_at_startup = 1
 " GitGutter conf
 let g:gitgutter_enable = 1
 let g:gitgutter_async = 1
-
 let g:gitgutter_sign_added = '│'
 let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed = '_'
@@ -150,8 +145,7 @@ set softtabstop=2
 set shiftwidth=2
 set textwidth=120
 set expandtab
-set scrolloff=20 " Show 10 lines below cursor when scrolling
-
+set scrolloff=20
 set wildignorecase
 set ignorecase
 set smartcase
@@ -180,7 +174,6 @@ augroup gitcommit
   autocmd FileType gitcommit setlocal nowrap
 augroup END
 
-
 " se termguicolors
 hi VertSplit term=NONE cterm=NONE ctermfg=245 ctermbg=NONE gui=NONE guifg=black guibg=#6C6C6C
 hi ALEError ctermfg=214 ctermbg=none cterm=none
@@ -190,7 +183,6 @@ hi DiffChange ctermfg=yellow ctermbg=none
 hi DiffDelete ctermfg=red ctermbg=none
 hi DiffText cterm=underline ctermfg=blue ctermbg=none
 hi ALEErrorSign ctermfg=red
-hi Folded ctermbg=black
 
 set termguicolors
 color base16-tomorrow-night
