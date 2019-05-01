@@ -12,13 +12,14 @@
                     "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
-                    "basic.to_if_held_down_threshold_milliseconds": 500
+                    "basic.to_if_held_down_threshold_milliseconds": 500,
+                    "mouse_motion_to_scroll.speed": 100
                 },
                 "rules": [
-                  {
+                    {
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to command+control+option+shift. Escape if no other key used.",
+                                "description": "Change ctrl to esc if pressed alone.",
                                 "from": {
                                     "key_code": "left_control",
                                     "modifiers": {
@@ -29,19 +30,12 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control",
-                                        "modifiers": [
-                                        ]
+                                        "key_code": "left_control"
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "escape",
-                                        "modifiers": {
-                                            "optional": [
-                                                "any"
-                                            ]
-                                        }
+                                        "key_code": "escape"
                                     }
                                 ],
                                 "type": "basic"
@@ -62,6 +56,19 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 630,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
                     "simple_modifications": []
                 }
             ],
@@ -168,6 +175,14 @@
             "simple_modifications": [
                 {
                     "from": {
+                        "key_code": "end"
+                    },
+                    "to": {
+                        "consumer_key_code": "rewind"
+                    }
+                },
+                {
+                    "from": {
                         "key_code": "f1"
                     },
                     "to": {
@@ -216,6 +231,14 @@
                 },
                 {
                     "from": {
+                        "key_code": "page_down"
+                    },
+                    "to": {
+                        "consumer_key_code": "fastforward"
+                    }
+                },
+                {
+                    "from": {
                         "key_code": "right_command"
                     },
                     "to": {
@@ -229,22 +252,6 @@
                     "to": {
                         "key_code": "left_control"
                     }
-                },
-                {
-                    "from": {
-                        "key_code": "page_down"
-                    },
-                    "to": {
-                        "consumer_key_code": "fastforward"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "end"
-                    },
-                    "to": {
-                        "consumer_key_code": "rewind"
-                    }
                 }
             ],
             "virtual_hid_keyboard": {
@@ -253,3 +260,4 @@
         }
     ]
 }
+
