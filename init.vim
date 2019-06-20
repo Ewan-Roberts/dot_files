@@ -13,7 +13,8 @@ let &rtp = &rtp . ',' . s:editor_root . '/bundle/Vundle.vim/'
 call vundle#begin(s:editor_root . '/bundle')
 
 " let Vundle manage Vundle, required
-Plugin 'justfielding/vim-chunkwm-navigator'
+" Plugin 'justfielding/vim-chunkwm-navigator'
+Plugin 'HendrikPetertje/vimify'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
@@ -32,7 +33,6 @@ Plugin 'ervandew/supertab'
 call vundle#end()
 
 let g:mapleader = " "
-
 " ---------------- ALE ---------------
 let g:ale_emit_conflict_warnings = 1
 let g:ale_linters = {
@@ -68,8 +68,9 @@ nnoremap <ESC> <ESC>:nohlsearch<CR>
 nnoremap <Leader>n :NERDTreeFocus<CR>
 nnoremap * *``
 nnoremap Y y$
+nnoremap q :q <CR>
 nnoremap W <Nop>
-nnoremap V vg_
+nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``
 
 vnoremap < <gv
 vnoremap > >gv
@@ -165,7 +166,7 @@ augroup SuperColor
   autocmd!
   autocmd ColorScheme * hi Normal guibg=black guifg=white
   autocmd ColorScheme * hi Visual guibg=blue guifg=white
-  autocmd ColorScheme * hi Search cterm=NONE guibg=#808080 guifg=white
+  autocmd ColorScheme * hi Search cterm=NONE guibg=#bc8134 guifg=black
   autocmd ColorScheme * hi LineNr guibg=#050505 guifg=grey
   autocmd ColorScheme * hi GitGutterChange guibg=none
   autocmd ColorScheme * hi GitGutterAdd guibg=none
@@ -175,9 +176,8 @@ augroup SuperColor
 augroup END
 
 " syntax off
-hi Search cterm=NONE guibg=#54aff7 guifg=white
+hi Search cterm=NONE guibg=#bc8134 guifg=black
 hi CursorLine guibg=grey
 hi Normal guifg=white guibg=black
 hi Visual guibg=blue guifg=white
-
 
