@@ -22,3 +22,6 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 shopt -s cmdhist
 shopt -s lithist
+
+# set vim key bindings in bash
+set -o vi
