@@ -140,6 +140,7 @@ set listchars=trail:×,extends:…,precedes:…,tab:·\
 set signcolumn=yes
 set showbreak=¶
 set expandtab
+au InsertLeave * set nopaste
 
 hi VertSplit term=NONE cterm=NONE ctermfg=245 ctermbg=NONE gui=NONE guifg=black guibg=#6C6C6C
 hi ALEError ctermfg=214 ctermbg=none cterm=none
