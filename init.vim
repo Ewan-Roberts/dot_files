@@ -30,7 +30,7 @@ Plugin 'chriskempson/base16-vim'
 call vundle#end()
 " ---------------- /VUNDLE ---------------
 
-" ---------------- ALE ---------------
+" ---------------- ALE -------------------
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'json':       ['prettier'],
@@ -43,13 +43,47 @@ let g:ale_fixers = {
       \}
 let g:ale_sign_error  = '>'
 let g:ale_fix_on_save = 1
-" ------------------- / ALE ---------------
+" ------------------- / ALE --------------
 
-" ---------------- FZF ---------------
+" ---------------- FZF -------------------
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --ignore'
-" ---------------- /FZF ---------------
+" ---------------- /FZF ------------------
 
-" ---------------- KEY MAPPINGS ----------------
+
+" ---------------- RIPGREP ---------------
+if executable('rg')
+  let g:ctrlp_user_command      = 'rg --files %s'
+  let g:ctrlp_use_caching       = 1
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_switch_buffer     = 'et'
+  let g:ackprg                  = 'rg --vimgrep --no-heading'
+endif
+" ---------------- /RIPGREP --------------
+
+" ---------------- NERDTREE---------------
+command! UT UndotreeToggle
+command! UF UndotreeToggle
+command! NF NERDTreeFocus
+command! NC NERDTreeClose
+
+let NERDTreeQuitOnOpen          = 0
+let NERDTreeMinimalUI           = 1
+let g:NERDTreeNodeDelimiter     = "\u00a0"
+let NERDTreeDirArrowExpandable  = " "
+let NERDTreeDirArrowCollapsible = " "
+" ---------------- /NERDTREE--------------
+
+" ---------------- GITGUTTER -------------
+let g:gitgutter_enable                  = 1
+let g:gitgutter_async                   = 1
+let g:gitgutter_sign_added              = '│'
+let g:gitgutter_sign_modified           = '│'
+let g:gitgutter_sign_removed            = '_'
+let g:gitgutter_sign_removed_first_line = '⤒'
+let g:gitgutter_sign_modified_removed   = '│_'
+" ---------------- /GITGUTTER ------------
+
+" ---------------- KEY MAPPINGS ----------
 nnoremap <C-P> :FZF<CR>
 nnoremap <C-S> :w<CR>
 nnoremap <C-F> :Ack! ''<left>
@@ -83,40 +117,7 @@ tnoremap <C-H> <C-\><C-N><C-W><C-H>
 tnoremap <C-J> <C-\><C-N><C-W><C-J>
 tnoremap <C-K> <C-\><C-N><C-W><C-K>
 tnoremap <C-L> <C-\><C-N><C-W><C-L>
-" ---------------- /KEY MAPPINGS ----------------
-
-" ---------------- RIPGREP ----------------
-if executable('rg')
-  let g:ctrlp_user_command = 'rg --files %s'
-  let g:ctrlp_use_caching = 1
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_switch_buffer = 'et'
-  let g:ackprg = 'rg --vimgrep --no-heading'
-endif
-" ---------------- /RIPGREP ----------------
-
-" ---------------- NERDTREE----------------
-command! UT UndotreeToggle
-command! UF UndotreeToggle
-command! NF NERDTreeFocus
-command! NC NERDTreeClose
-
-let NERDTreeQuitOnOpen = 0
-let NERDTreeMinimalUI  = 1
-let g:NERDTreeNodeDelimiter = "\u00a0"
-let g:taboo_renamed_tab_format= "  %l %s  "
-let NERDTreeDirArrows = 1
-" ---------------- /NERDTREE----------------
-
-" ---------------- GITGUTTER ----------------
-let g:gitgutter_enable = 1
-let g:gitgutter_async = 1
-let g:gitgutter_sign_added = '│'
-let g:gitgutter_sign_modified = '│'
-let g:gitgutter_sign_removed = '_'
-let g:gitgutter_sign_removed_first_line = '⤒'
-let g:gitgutter_sign_modified_removed = '│_'
-" ---------------- /GITGUTTER ----------------
+" ---------------- /KEY MAPPINGS ---------
 
 " ---------------- CONFIG ----------------
 set clipboard+=unnamed
@@ -148,38 +149,36 @@ set listchars=trail:×,extends:…,precedes:…,tab:·\
 set signcolumn=yes
 set showbreak=¶
 set expandtab
-" ---------------- /CONFIG ----------------
+" ---------------- /CONFIG ---------------
 
 " ---------------- VISUAL ----------------
-hi VertSplit term=NONE cterm=NONE ctermfg=245 ctermbg=NONE gui=NONE guifg=black guibg=#6C6C6C
-hi ALEError ctermfg=214 ctermbg=none cterm=none
-hi SpellBad ctermbg=none cterm=underline ctermfg=171
-hi DiffAdd ctermfg=green ctermbg=none
-hi DiffChange ctermfg=yellow ctermbg=none
-hi DiffDelete ctermfg=red ctermbg=none
-hi DiffText cterm=underline ctermfg=blue ctermbg=none
+hi VertSplit    term=NONE       cterm=NONE      ctermfg=245 ctermbg=NONE gui=NONE guifg=black guibg=#6C6C6C
+hi ALEError     ctermfg=214     ctermbg=none    cterm=none
+hi SpellBad     ctermbg=none    cterm=underline ctermfg=171
+hi DiffText     cterm=underline ctermfg=blue    ctermbg=none
+hi DiffAdd      ctermfg=green   ctermbg=none
+hi DiffChange   ctermfg=yellow  ctermbg=none
+hi DiffDelete   ctermfg=red     ctermbg=none
 hi ALEErrorSign ctermfg=red
 
 set termguicolors
 color base16-tomorrow-night
 augroup SuperColor
   autocmd!
-  autocmd ColorScheme * hi Normal guibg=black guifg=white
-  autocmd ColorScheme * hi Visual guibg=blue guifg=white
-  autocmd ColorScheme * hi Search cterm=NONE guibg=#bc8134 guifg=black
-  autocmd ColorScheme * hi LineNr guibg=#050505 guifg=grey
-  autocmd ColorScheme * hi GitGutterChange guibg=none
-  autocmd ColorScheme * hi GitGutterAdd guibg=none
+  autocmd ColorScheme * hi Normal                guibg=black guifg=white
+  autocmd ColorScheme * hi Visual                guibg=blue guifg=white
+  autocmd ColorScheme * hi Search                cterm=NONE guibg=#bc8134 guifg=black
+  autocmd ColorScheme * hi LineNr                guibg=#050505 guifg=grey
+  autocmd ColorScheme * hi GitGutterChange       guibg=none
+  autocmd ColorScheme * hi GitGutterAdd          guibg=none
   autocmd ColorScheme * hi GitGutterChangeDelete guibg=none
-  autocmd ColorScheme * hi VertSplit term=NONE cterm=NONE ctermfg=245 ctermbg=NONE guifg='#282a2e' guibg=NONE
-  autocmd ColorScheme * hi VertSplit term=NONE cterm=NONE ctermfg=245 ctermbg=NONE guifg='#282a2e' guibg=NONE
+  autocmd ColorScheme * hi VertSplit term=NONE   cterm=NONE ctermfg=245 ctermbg=NONE guifg='#282a2e' guibg=NONE
+  autocmd ColorScheme * hi VertSplit term=NONE   cterm=NONE ctermfg=245 ctermbg=NONE guifg='#282a2e' guibg=NONE
 augroup END
 
 " syntax off
-hi Search cterm=NONE guibg=#bc8134 guifg=black
+hi Search     cterm=NONE  guibg=#bc8134 guifg=black
+hi Normal     guifg=white guibg=black
+hi Visual     guibg=blue  guifg=white
 hi CursorLine guibg=grey
-hi Normal guifg=white guibg=black
-hi Visual guibg=blue guifg=white
 " ---------------- VISUAL ----------------
-
-
