@@ -1,6 +1,6 @@
 language en_US.UTF-8
-filetype off " required
-filetype plugin indent on    " required
+filetype off              " required
+filetype plugin indent on " required
 
 if has('nvim')
   let s:editor_root=expand("~/.config/nvim")
@@ -8,11 +8,13 @@ else
   let s:editor_root=expand("~/.vim")
 endif
 
+let g:mapleader = " "
+
 " set the runtime path to include Vundle and initialize
 let &rtp = &rtp . ',' . s:editor_root . '/bundle/Vundle.vim/'
-call vundle#begin(s:editor_root . '/bundle')
 
-" let Vundle manage Vundle, required
+" ---------------- VUNDLE ---------------
+call vundle#begin(s:editor_root . '/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
@@ -25,14 +27,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chriskempson/base16-vim'
-Plugin 'ervandew/supertab'
-
-" All of your Plugins must be added before the following line
 call vundle#end()
+" ---------------- /VUNDLE ---------------
 
-let g:mapleader = " "
 " ---------------- ALE ---------------
-let g:ale_emit_conflict_warnings = 1
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ 'json':       ['prettier'],
@@ -48,7 +46,7 @@ let g:ale_fix_on_save = 1
 " ------------------- / ALE ---------------
 
 " ---------------- FZF ---------------
-let $FZF_DEFAULT_COMMAND='rg --files --hidden --ignore --glob "!web/*"'
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --ignore'
 " ---------------- /FZF ---------------
 
 " ---------------- KEY MAPPINGS ----------------
@@ -57,6 +55,7 @@ nnoremap <C-S> :w<CR>
 nnoremap <C-F> :Ack! ''<left>
 nnoremap <S-H> :tabprevious <CR>
 nnoremap <S-L> :tabnext <CR>
+nnoremap <C-T> :tabnew<CR>
 nnoremap < <C-w>4<
 nnoremap > <C-w>4>
 nnoremap + <C-w>+
@@ -69,19 +68,24 @@ nnoremap Y y$
 nnoremap q :q <CR>
 nnoremap W <Nop>
 nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``
-
+nnoremap p p`]<Esc>
+nmap <A-CR> O<Esc>
+nmap <Leader>w :vsplit<CR> :vsplit<CR> :vsplit<CR>
+nmap <Leader>v :vsplit<CR>:te <CR> :vsplit<CR>:te<CR> :vsplit<CR>:te<CR>
+map Q <Nop>
 vnoremap < <gv
 vnoremap > >gv
-vnoremap <Leader>p :diffput<CR>
-vnoremap <Leader>p :diffput<CR>
+" leave paste mode by default
+au InsertLeave * set nopaste
 
 " Terminal navigation:
 tnoremap <C-H> <C-\><C-N><C-W><C-H>
 tnoremap <C-J> <C-\><C-N><C-W><C-J>
 tnoremap <C-K> <C-\><C-N><C-W><C-K>
 tnoremap <C-L> <C-\><C-N><C-W><C-L>
+" ---------------- /KEY MAPPINGS ----------------
 
-" RIPGREP
+" ---------------- RIPGREP ----------------
 if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
   let g:ctrlp_use_caching = 1
@@ -89,8 +93,9 @@ if executable('rg')
   let g:ctrlp_switch_buffer = 'et'
   let g:ackprg = 'rg --vimgrep --no-heading'
 endif
-" /RIPGREP
+" ---------------- /RIPGREP ----------------
 
+" ---------------- NERDTREE----------------
 command! UT UndotreeToggle
 command! UF UndotreeToggle
 command! NF NERDTreeFocus
@@ -99,9 +104,11 @@ command! NC NERDTreeClose
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI  = 1
 let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:taboo_renamed_tab_format= "  %l %s  "
 let NERDTreeDirArrows = 1
+" ---------------- /NERDTREE----------------
 
-" GitGutter conf
+" ---------------- GITGUTTER ----------------
 let g:gitgutter_enable = 1
 let g:gitgutter_async = 1
 let g:gitgutter_sign_added = '│'
@@ -109,7 +116,10 @@ let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed = '_'
 let g:gitgutter_sign_removed_first_line = '⤒'
 let g:gitgutter_sign_modified_removed = '│_'
+" ---------------- /GITGUTTER ----------------
 
+" ---------------- CONFIG ----------------
+set clipboard+=unnamed
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -138,8 +148,9 @@ set listchars=trail:×,extends:…,precedes:…,tab:·\
 set signcolumn=yes
 set showbreak=¶
 set expandtab
-au InsertLeave * set nopaste
+" ---------------- /CONFIG ----------------
 
+" ---------------- VISUAL ----------------
 hi VertSplit term=NONE cterm=NONE ctermfg=245 ctermbg=NONE gui=NONE guifg=black guibg=#6C6C6C
 hi ALEError ctermfg=214 ctermbg=none cterm=none
 hi SpellBad ctermbg=none cterm=underline ctermfg=171
@@ -169,4 +180,6 @@ hi Search cterm=NONE guibg=#bc8134 guifg=black
 hi CursorLine guibg=grey
 hi Normal guifg=white guibg=black
 hi Visual guibg=blue guifg=white
+" ---------------- VISUAL ----------------
+
 
