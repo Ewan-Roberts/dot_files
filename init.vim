@@ -13,8 +13,6 @@ let &rtp = &rtp . ',' . s:editor_root . '/bundle/Vundle.vim/'
 call vundle#begin(s:editor_root . '/bundle')
 
 " let Vundle manage Vundle, required
-" Plugin 'justfielding/vim-chunkwm-navigator'
-Plugin 'HendrikPetertje/vimify'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
@@ -150,16 +148,6 @@ hi DiffChange ctermfg=yellow ctermbg=none
 hi DiffDelete ctermfg=red ctermbg=none
 hi DiffText cterm=underline ctermfg=blue ctermbg=none
 hi ALEErrorSign ctermfg=red
-
-" set termguicolors
-" color base16-tomorrow-night
-" augroup SuperColor
-"   autocmd!
-"   autocmd ColorScheme * hi Visual guibg=blue guifg=white
-"   autocmd ColorScheme * hi GitGutterChange guibg=none
-"   autocmd ColorScheme * hi GitGutterAdd guibg=none
-"   autocmd ColorScheme * hi GitGutterChangeDelete guibg=none
-" augroup END
 
 set termguicolors
 color base16-tomorrow-night
