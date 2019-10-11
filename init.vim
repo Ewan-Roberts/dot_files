@@ -84,6 +84,9 @@ let g:gitgutter_sign_modified_removed   = '│_'
 " ---------------- /GITGUTTER ------------
 
 " ---------------- KEY MAPPINGS ----------
+map Q <Nop>
+map <C-Q> :q! <CR>
+
 nnoremap <C-P> :FZF<CR>
 nnoremap <C-S> :w<CR>
 nnoremap <C-F> :Ack! ''<left>
@@ -99,14 +102,12 @@ nnoremap <ESC> <ESC>:nohlsearch<CR>
 nnoremap <Leader>n :NERDTreeFocus<CR>
 nnoremap * *``
 nnoremap Y y$
-nnoremap q :q <CR>
 nnoremap W <Nop>
 nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``
 nnoremap p p`]<Esc>
 nmap <A-CR> O<Esc>
 nmap <Leader>w :vsplit<CR> :vsplit<CR> :vsplit<CR>
 nmap <Leader>v :vsplit<CR>:te <CR> :vsplit<CR>:te<CR> :vsplit<CR>:te<CR>
-map Q <Nop>
 vnoremap < <gv
 vnoremap > >gv
 " leave paste mode by default
