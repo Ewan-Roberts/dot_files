@@ -1,7 +1,6 @@
-
 {
     "global": {
-        "check_for_updates_on_startup": true,
+        "check_for_updates_on_startup": false,
         "show_in_menu_bar": true,
         "show_profile_name_in_menu_bar": false
     },
@@ -39,6 +38,26 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "description": "Change control enter to backspace",
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace"
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
@@ -69,6 +88,45 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 102,
+                        "vendor_id": 205
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 16962,
+                        "vendor_id": 65261
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 16962,
+                        "vendor_id": 65261
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
                     "simple_modifications": []
                 }
             ],
@@ -126,7 +184,7 @@
                         "key_code": "f7"
                     },
                     "to": {
-                        "consumer_key_code": "rewind"
+                        "shell_command": "~/Development/sconsify -command replay"
                     }
                 },
                 {
@@ -134,7 +192,7 @@
                         "key_code": "f8"
                     },
                     "to": {
-                        "consumer_key_code": "play_or_pause"
+                        "shell_command": "~/Development/sconsify -command play_pause"
                     }
                 },
                 {
@@ -142,7 +200,7 @@
                         "key_code": "f9"
                     },
                     "to": {
-                        "consumer_key_code": "fastforward"
+                        "shell_command": "~/Development/sconsify -command next"
                     }
                 },
                 {
@@ -175,10 +233,26 @@
             "simple_modifications": [
                 {
                     "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": {
+                        "key_code": "left_control"
+                    }
+                },
+                {
+                    "from": {
                         "key_code": "end"
                     },
                     "to": {
-                        "consumer_key_code": "rewind"
+                        "shell_command": "~/Development/sconsify -command replay"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "escape"
+                    },
+                    "to": {
+                        "key_code": "grave_accent_and_tilde"
                     }
                 },
                 {
@@ -186,7 +260,7 @@
                         "key_code": "f1"
                     },
                     "to": {
-                        "consumer_key_code": "rewind"
+                        "shell_command": "~/Development/sconsify -command replay"
                     }
                 },
                 {
@@ -194,7 +268,7 @@
                         "key_code": "f2"
                     },
                     "to": {
-                        "consumer_key_code": "fastforward"
+                        "shell_command": "~/Development/sconsify -command next"
                     }
                 },
                 {
@@ -226,7 +300,15 @@
                         "key_code": "insert"
                     },
                     "to": {
-                        "consumer_key_code": "play_or_pause"
+                        "shell_command": "~/Development/sconsify -command play_pause"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "keypad_hyphen"
+                    },
+                    "to": {
+                        "shell_command": "~/Development/sconsify -command replay"
                     }
                 },
                 {
@@ -234,23 +316,7 @@
                         "key_code": "page_down"
                     },
                     "to": {
-                        "consumer_key_code": "fastforward"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "right_command"
-                    },
-                    "to": {
-                        "key_code": "left_command"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "right_shift"
-                    },
-                    "to": {
-                        "key_code": "left_control"
+                        "shell_command": "~/Development/sconsify -command next"
                     }
                 }
             ],
