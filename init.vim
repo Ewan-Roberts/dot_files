@@ -100,7 +100,7 @@ nnoremap - <C-w>-
 nnoremap _ :ALEFix<CR>
 nnoremap <ESC> <ESC>:nohlsearch<CR>
 nnoremap <Leader>n :NERDTreeFocus<CR>
-nnoremap * *``
+nnoremap <silent> * :let @/ = '\<' . expand('<cword>') . '\>' \|set hls<C-M>
 nnoremap Y y$
 nnoremap W <Nop>
 nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``
