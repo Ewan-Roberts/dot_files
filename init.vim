@@ -87,6 +87,8 @@ let g:gitgutter_sign_modified_removed   = '│_'
 map Q <Nop>
 map <C-Q> :q! <CR>
 
+" copy filepath of current file to clipboard
+nnoremap <silent> cp :!echo '%' \| ruby -e 'print(STDIN.read.strip)' \| pbcopy<CR><CR> 
 nnoremap <C-P> :FZF<CR>
 nnoremap <C-S> :w<CR>
 nnoremap <C-F> :Ack! ''<left>
