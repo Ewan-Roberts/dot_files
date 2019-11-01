@@ -1,0 +1,6 @@
+tmp
+*.csv
+*.ipynb
+*.lock
+**/data/**
+**/web/**
