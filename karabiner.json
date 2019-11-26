@@ -1,6 +1,6 @@
 {
     "global": {
-        "check_for_updates_on_startup": true,
+        "check_for_updates_on_startup": false,
         "show_in_menu_bar": true,
         "show_profile_name_in_menu_bar": false
     },
@@ -38,18 +38,57 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "description": "Change control space to space",
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar"
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Change left option + I/J/K/L to Arrow Keys",
+                        "description": "Change left_alt+hjkl to arrow keys",
                         "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_alt"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
+                                            "left_alt"
                                         ],
                                         "optional": [
                                             "any"
@@ -68,7 +107,7 @@
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
+                                            "left_alt"
                                         ],
                                         "optional": [
                                             "any"
@@ -87,7 +126,7 @@
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
+                                            "left_alt"
                                         ],
                                         "optional": [
                                             "any"
@@ -106,7 +145,7 @@
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
+                                            "left_alt"
                                         ],
                                         "optional": [
                                             "any"
@@ -156,12 +195,12 @@
                     "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 611,
-                        "vendor_id": 1452
+                        "is_pointing_device": true,
+                        "product_id": 102,
+                        "vendor_id": 205
                     },
                     "ignore": false,
-                    "manipulate_caps_lock_led": true,
+                    "manipulate_caps_lock_led": false,
                     "simple_modifications": []
                 },
                 {
@@ -169,9 +208,22 @@
                     "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 16962,
+                        "vendor_id": 65261
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
                         "is_pointing_device": true,
-                        "product_id": 102,
-                        "vendor_id": 205
+                        "product_id": 16962,
+                        "vendor_id": 65261
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
@@ -232,7 +284,7 @@
                         "key_code": "f7"
                     },
                     "to": {
-                        "consumer_key_code": "rewind"
+                        "shell_command": "~/Development/sconsify -command replay"
                     }
                 },
                 {
@@ -240,7 +292,7 @@
                         "key_code": "f8"
                     },
                     "to": {
-                        "consumer_key_code": "play_or_pause"
+                        "shell_command": "~/Development/sconsify -command play_pause"
                     }
                 },
                 {
@@ -248,7 +300,7 @@
                         "key_code": "f9"
                     },
                     "to": {
-                        "consumer_key_code": "fastforward"
+                        "shell_command": "~/Development/sconsify -command next"
                     }
                 },
                 {
@@ -292,7 +344,7 @@
                         "key_code": "end"
                     },
                     "to": {
-                        "consumer_key_code": "rewind"
+                        "shell_command": "~/Development/sconsify -command replay"
                     }
                 },
                 {
@@ -301,6 +353,30 @@
                     },
                     "to": {
                         "key_code": "grave_accent_and_tilde"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f1"
+                    },
+                    "to": {
+                        "shell_command": "~/Development/sconsify -command replay"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f2"
+                    },
+                    "to": {
+                        "shell_command": "~/Development/sconsify -command next"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f3"
+                    },
+                    "to": {
+                        "consumer_key_code": "mute"
                     }
                 },
                 {
@@ -324,7 +400,15 @@
                         "key_code": "insert"
                     },
                     "to": {
-                        "consumer_key_code": "play_or_pause"
+                        "shell_command": "~/Development/sconsify -command play_pause"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "keypad_hyphen"
+                    },
+                    "to": {
+                        "shell_command": "~/Development/sconsify -command replay"
                     }
                 },
                 {
@@ -332,15 +416,15 @@
                         "key_code": "page_down"
                     },
                     "to": {
-                        "consumer_key_code": "fastforward"
+                        "shell_command": "~/Development/sconsify -command next"
                     }
                 },
                 {
                     "from": {
-                        "key_code": "right_command"
+                        "key_code": "play_or_pause"
                     },
                     "to": {
-                        "key_code": "left_command"
+                        "shell_command": "~/Development/sconsify -command play_pause"
                     }
                 }
             ],
