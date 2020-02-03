@@ -115,6 +115,8 @@ vnoremap > >gv
 " leave paste mode by default
 au InsertLeave * set nopaste
 
+inoremap <C-d> <del>
+
 " Terminal navigation:
 tnoremap <C-H> <C-\><C-N><C-W><C-H>
 tnoremap <C-J> <C-\><C-N><C-W><C-J>
