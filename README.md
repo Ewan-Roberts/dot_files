@@ -24,3 +24,4 @@ figlet
 // get detailed weather
 while true; do curl wttr.in/London?format=v2; sleep 1000;done
 ```
+/Users/ewan/Library/Application Support/Spectacle
