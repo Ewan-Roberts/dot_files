@@ -18,6 +18,10 @@ termtrack -t -n
 
 figlet
 
+defaults write NSGlobalDomain KeyRepeat -float 1.5
+defaults write NSGlobalDomain InitialKeyRepeat -int 8
+
+
 //just time
  while true; do tput clear; date +"%H : %M" | figlet ; sleep 60; done
 
